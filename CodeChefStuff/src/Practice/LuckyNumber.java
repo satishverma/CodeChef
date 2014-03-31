@@ -51,11 +51,26 @@ Fourth test case: the only two required numbers are 4444 and 4447.
 public class LuckyNumber {
     
     
+    public int findNumLuckyNumbers(int min, int max) {
+        int numLuckyNum = -1;
+        
+        
+        
+        
+        return numLuckyNum;
+    } //findNumLuckyNumbers 
+    
     public static void main(String[] args) {
         
         int T = 1; //Number of Test Cases
-        int L = 1; //Number 
+        int L = 1; // Left Limit
+        int R = 100; //Right Limit
         
+        LuckyNumber driver = new LuckyNumber();
+        
+        for(int i=0;i<T;i++) {
+            driver.findNumLuckyNumbers(L,R);
+        }
     } //main
     
 } //LuckyNumber
