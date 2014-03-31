@@ -50,4 +50,12 @@ Fourth test case: the only two required numbers are 4444 and 4447.
  */
 public class LuckyNumber {
     
-}
+    
+    public static void main(String[] args) {
+        
+        int T = 1; //Number of Test Cases
+        int L = 1; //Number 
+        
+    } //main
+    
+} //LuckyNumber
