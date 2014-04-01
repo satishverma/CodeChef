@@ -50,11 +50,39 @@ Fourth test case: the only two required numbers are 4444 and 4447.
  */
 public class LuckyNumber {
     
+    public int countLuckyDigits(int num) {
+        String s = String.valueOf(num);
+        int count=0;
+        char[] sArr = s.toCharArray();
+        for(int i=0;i<sArr.length;i++) {
+            if(sArr[i]=='4' || sArr[i]=='7') {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public int getNumDigit(int num) {
+        int count=1;
+        while(num%10!=0) {
+            num/=10;
+            count++;
+        }
+        return count;
+    }
     
     public int findNumLuckyNumbers(int min, int max) {
         int numLuckyNum = -1;
         
+        //if num digits is less than 4, there is no such number
+        //min such number is 4444 
+        //4 digit nums 2^4 == 16
+        //5digit is 640
+        if(max<4444) return 0;
         
+        int numDigitL = getNumDigit(min);
+        int numDigitR = getNumDigit(max);
+        //System.out.println(numDigitL + " "+numDigitR);
         
         
         return numLuckyNum;
@@ -67,6 +95,7 @@ public class LuckyNumber {
         int R = 100; //Right Limit
         
         LuckyNumber driver = new LuckyNumber();
+        
         
         for(int i=0;i<T;i++) {
             driver.findNumLuckyNumbers(L,R);
