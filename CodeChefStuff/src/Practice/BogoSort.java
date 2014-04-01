@@ -4,11 +4,15 @@
  */
 package Practice;
 
+import java.util.ArrayList;
+
 /**
  *http://www.codechef.com/problems/BOGOSORT
  * @author sverma
  */
 public class BogoSort {
+    
+    public static int count=0;
     
     public int[] getArr(int N) {
         int[] arr = new int[N];
@@ -33,6 +37,57 @@ public class BogoSort {
         return true;
     }
     
+    
+    
+    //bogosort
+    public int[] bogoSort(int[] temp, int min, int max) {
+        count++;
+        //System.out.println("min max "+min +" "+max);
+        temp = shuffle(temp,min,max);
+        
+        if(this.isSorted(temp)) {
+            this.printArr(temp);
+            return temp;
+        }
+        //more bogoSorts here
+        //find all regions
+        //this.printArr(temp);
+        while(temp[min]==min) {
+            min++;
+        }
+        while(temp[max]==max) {
+            max--;
+        }
+        
+        
+        return(bogoSort(temp,min,max));
+        
+    }
+    
+    //shuffle an array
+     public int[] shuffle(int[] a,int min,int max) {
+         if(max<=min) return a;
+         //System.out.println("shuffle min max " +min + " "+max);
+        int N =max-min+1;
+        //random number must be between 
+        for (int i = min; i <= max; i++) {
+            // choose index uniformly in [i, N-1]
+            int r = i + (int) (Math.random() * (N -i));
+            int swap = a[r];
+            a[r] = a[i];
+            a[i] = swap;
+        }
+        return a;
+    } //shuffle
+     
+    public ArrayList<Integer> inCorrect(int[] arr,ArrayList<Integer> x) {
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==i) x.add(i);
+        }
+        return x;
+    }
+    
     public static void main(String[] args) {
         int T =1; //number of test cases
       
@@ -47,8 +102,13 @@ public class BogoSort {
         bs.printArr(testArr);
         System.out.println(bs.isSorted(testArr));
         //do bogosort 
+
+        //pseudo code
         
+       
+        bs.bogoSort(testArr, 0,testArr.length-1);
         
-    }//main
-    
+        System.out.println(count);
+ 
+    }//main  
 }
