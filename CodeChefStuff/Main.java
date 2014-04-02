@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Practice;
 
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.Scanner;
  *http://www.codechef.com/problems/BOGOSORT
  * @author sverma
  */
-public class BogoSort {
+public class Main {
     
     public static int count=0;
     
@@ -112,14 +111,14 @@ public class BogoSort {
         
         System.out.println(T);
         
-        BogoSort bs = new BogoSort();
+        Main bs = new Main();
         int N;
         Random random = new Random();
        
         for (int i = 0; i < NArr.length; i++) {
             //System.out.println(i);
             N = NArr[i];
-            int repeatNumTimes= random.nextInt(1000)+20000;
+            int repeatNumTimes= random.nextInt(1000)+100;
             //System.out.println(N);
             int countBogosNeeded=0;
             for (int r = 0; r < repeatNumTimes; r++) {
@@ -167,7 +166,7 @@ public class BogoSort {
       
         int N=5; //number of elements
         
-        BogoSort bs = new BogoSort();
+        Main bs = new Main();
         
         //generate a test case 
         int[] testArr = bs.getArr(N);
